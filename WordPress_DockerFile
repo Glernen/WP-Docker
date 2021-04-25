@@ -1,0 +1,16 @@
+#设置WordPress的Docker镜像中uploads.ini上传文件的单文件上限为520MB
+FROM wordpress:latest
+
+LABEL Author=AMG
+
+MAINTAINER ZJZX
+
+RUN /bin/bash -c 'apt-get update && apt-get -y install vim'  #更新软件列表&&安装vim编辑器
+
+RUN touch uploads.ini && \  #新建uploads.ini文件
+echo -c file_uploads = On >uploads.ini && \
+echo -c memory_limit = 600MB >uploads.ini && \
+echo -c upload_max_filesize = 512MB >uploads.ini && \
+echo -c post_max_size = 512MB >uploads.ini && \
+echo -c max_execution_time = 3600 >uploads.ini && \
+mv uploads.ini /usr/local/etc/php/conf.d/
