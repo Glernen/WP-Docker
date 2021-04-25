@@ -19,4 +19,5 @@ echo -e "\n创建完成\n"
 
 echo -e "\n========================3. 创建镜像========================\n"
 #不使用-f参数指定文件，docker-compose会默认寻找名为docker-compose.yml 、docker-compose.yaml的配置文件
-docker-compose -f wp-compose.yml up -d
+# docker-compose -f wp-compose.yml up -d
+docker-compose up -d --build
