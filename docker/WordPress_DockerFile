@@ -5,7 +5,7 @@ LABEL Author=AMG
 
 MAINTAINER ZJZX
 
-RUN /bin/bash -c 'apt-get update && apt-get -y install vim'  #更新软件列表&&安装vim编辑器
+#RUN /bin/bash -c 'apt-get update && apt-get -y install vim'  #更新软件列表&&安装vim编辑器
 
 RUN touch uploads.ini && \  #新建uploads.ini文件
 echo file_uploads = On >uploads.ini && \
