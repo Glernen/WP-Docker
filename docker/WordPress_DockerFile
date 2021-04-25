@@ -1,7 +1,7 @@
 #设置WordPress的Docker镜像中uploads.ini上传文件的单文件上限为520MB
 FROM wordpress:latest
 
-LABEL Author=AMG MAINTAINER ZJZX
+LABEL Author=AMG MAINTAINER=ZJZX
 
 RUN touch uploads.ini && \  #新建uploads.ini文件
 echo file_uploads = On >uploads.ini && \
