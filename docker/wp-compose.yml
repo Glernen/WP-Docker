@@ -1,0 +1,29 @@
+version: '3'
+services:
+  wordpress:    #### 服务之一: wordpress               
+    image: h455257166/wordpress:latest
+    restart: always
+    depends_on:    ### 服务之间我们可以设置一个依赖. 让 wordpress 依赖下面的 db 服务. 
+      - db
+    ports:
+      - 80:80    ### 让80这个端口的对应容器里面的80端口，这样在主机上面访问 8080 端口的时候，对应得到的就是容器里面的在 80 端口上面运行的服务
+    environment:
+      WORDPRESS_DB_HOST: db    ### db表示 workpress 使用的数据库的主机，这里可以把它设置成db，
+      WORDPRESS_DB_USER: 'zjzx'   ###数据库的用户
+      WORDPRESS_DB_PASSWORD: 'zjzx@zjzx'    ###数据库用户的密码，即使创建mysql容器时指定的MYSQL_ROOT_PASSWORD的密码
+      WORDPRESS_DB_NAME: 'wp'  ###WORDPRESS_DB_NAME：使用的数据库，wordpress会自动创建
+    volumes:
+      - ./app/wp-content:/var/www/html/wp-content/    ### 当前目录下的 app 文件夹
+      ### - ./app/php/config/php-uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+  db:        #### 服务之二: db 数据库服务
+    image: mysql:5.7
+    restart: always
+    ports:
+     - 3306:3306
+    environment:
+      MYSQL_DATABASE: 'wp'    ### Mysql 镜像里面有一个 mysql database，添加一个数据库，这个数据库应该是 toview.
+      MYSQL_USER: 'zjzx'        ### toview 这个数据库就是上面 wordpress 使用的数据库名字.
+      MYSQL_PASSWORD: 'zjzx@zjzx'
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - ./app/db:/var/lib/mysql
