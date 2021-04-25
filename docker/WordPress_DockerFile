@@ -10,3 +10,4 @@ echo upload_max_filesize = 512MB >uploads.ini && \
 echo post_max_size = 512MB >uploads.ini && \
 echo max_execution_time = 3600 >uploads.ini && \
 mv uploads.ini /usr/local/etc/php/conf.d/ && \
+apt-get update && apt-get -y install vim
