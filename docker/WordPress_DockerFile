@@ -3,12 +3,16 @@ FROM wordpress:latest
 
 LABEL Author="AMG" MAINTAINER="ZJZX"
  
-#新建uploads.ini文件
+# 新建uploads.ini文件
 RUN touch uploads.ini && \
 echo "file_uploads = On" >>uploads.ini && \
+# 内存设置限制
 echo "memory_limit = 600M" >>uploads.ini && \
+# 最大上传文件大小限制
 echo "upload_max_filesize = 512M" >>uploads.ini && \
+# 最大POST数据限制
 echo "post_max_size = 600M" >>uploads.ini && \
+# 程序执行时间限制
 echo "max_execution_time = 600" >>uploads.ini && \
 mv uploads.ini /usr/local/etc/php/conf.d/ && \
 apt-get update && apt-get -y install vim
