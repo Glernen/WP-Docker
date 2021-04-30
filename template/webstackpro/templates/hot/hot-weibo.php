@@ -30,7 +30,7 @@
         getList(apiurl);
     });
     function getList(_type){
-        $.post("https//apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
+        $.post("https://apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
             //raw.fastgit.org/typeofNaN/hot/master/weibo-hot-search/2021-04-30.json
             let html = '';
             for(var i=0;i<data.length;i++) {
