@@ -30,7 +30,7 @@
         getList(apiurl);
     });
     function getList(_type){
-        $.post("//apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
+        $.post("https://apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
             let html = '';
             var index = 1;
             for(let item of data) {

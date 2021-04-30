@@ -30,7 +30,7 @@
         getList(apiurl);
     });
     function getList(_type){
-        $.post("//api.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
+        $.post("https://apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
             let html = '';
             for(let item of data) {
                 html += '<div class="d-flex text-sm mb-2"><div><span class="hot-rank hot-rank-'+ (item['rank'])+' text-xs text-center">'+ (item['rank'])+'</span><a class="ml-2" href="'+item['link']+'" target="_blank" rel="external nofollow">'+item['keyword']+'</a></div><div class="ml-auto hot-heat d-none d-md-block">'+(item['index']/10000).toFixed(1)+'万</div></div>';

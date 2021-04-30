@@ -812,5 +812,3 @@ function toTarget(menu, padding = true, isMult = true) {
         })
     }
 }
-console.log("\n %c WebStack Pro 导航主题 By 一为 %c https://www.iowen.cn/ \n", "color: #ffffff; background: #f1404b; padding:5px 0;", "background: #030307; padding:5px 0;");
-  
