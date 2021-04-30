@@ -30,10 +30,12 @@
         getList(apiurl);
     });
     function getList(_type){
-        $.post("//apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
+        // $.post("//apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
+        $.post("//raw.fastgit.org/typeofNaN/hot/master/weibo-hot-search/2021-04-30.json",function(data,status){    
+
             let html = '';
             for(var i=0;i<data.length;i++) {
-                                html += '<div class="d-flex text-sm mb-2"><div><span class="hot-rank hot-rank-'+ (data[i]['rank'])+' text-xs text-center">'+ (data[i]['rank'])+'</span><a class="ml-2" href="'+data[i]['link']+'" target="_blank" rel="external nofollow">'+data[i]['keyword']+'</a></div><div class="ml-auto hot-heat d-none d-md-block">'+data[i]['index']+'</div></div>';
+                                html += '<div class="d-flex text-sm mb-2"><div><span class="hot-rank hot-rank-'+ (data[i])+' text-xs text-center">'+ (data[i])+'</span><a class="ml-2" href="'+data[i]['url']+'" target="_blank" rel="external nofollow">'+data[i]['title']+'</a></div><div class="ml-auto hot-heat d-none d-md-block">'+data[i]+'</div></div>';
                             } 
             $("#hot-loading-<?php echo $t ?>").fadeOut(200); 
             $('#hot-lod-<?php echo $t ?>').children('i').removeClass('icon-spin');
