@@ -31,7 +31,7 @@
     });
     function getList(_type){
         // $.post("//apiv2.iotheme.cn/hot/get.php", { type: _type ,key:"<?php echo io_get_option('iowen_key') ?>" },function(data,status){ 
-        $.post("https://raw.fastgit.org/typeofNaN/hot/master/weibo-hot-search/2021-04-30.json",function(data,status){    
+        $.get("https://raw.fastgit.org/typeofNaN/hot/master/weibo-hot-search/2021-04-30.json",function(data,status){    
 
             let html = '';
             for(var i=0;i<data.length;i++) {
